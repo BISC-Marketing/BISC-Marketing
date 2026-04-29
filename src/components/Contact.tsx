@@ -87,7 +87,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white">Call Us</h3>
-                <p className="mt-1 text-blue-100/70">-Unavailable right now-</p>
+                <p className="mt-1 text-blue-100/70">-Unavailable Right Now-</p>
                 <p className="text-sm text-blue-100/50 mt-1">
                   Mon–Sun, 8am–8pm AEST
                 </p>
