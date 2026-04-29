@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://biscmarketing.com"),
   title: "BISC Marketing | Web Design, Social Media & Business Cards",
   description:
     "BISC Marketing helps businesses grow with professional website development, social media management, and custom business card design. Get results-driven marketing solutions today.",
@@ -14,10 +15,14 @@ export const metadata: Metadata = {
     "BISC Marketing",
   ],
   authors: [{ name: "BISC Marketing" }],
+  alternates: {
+    canonical: "https://biscmarketing.com",
+  },
   openGraph: {
     title: "BISC Marketing | Web Design, Social Media & Business Cards",
     description:
       "Professional marketing solutions — websites, social media, and business cards that help your business stand out.",
+    url: "https://biscmarketing.com",
     type: "website",
     locale: "en_AU",
     siteName: "BISC Marketing",
