@@ -69,8 +69,7 @@ function WebsitePackagesContent() {
   return (
     <div className="space-y-6">
       <div className="rounded-xl border border-gray-200 p-6 hover:border-accent/40 transition-colors">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-2xl">🚀</span>
+        <div className="mb-3">
           <div>
             <h3 className="text-lg font-bold text-primary-dark">
               Starter Website
@@ -130,8 +129,7 @@ function WebsitePackagesContent() {
       </div>
 
       <div className="rounded-xl border border-gray-200 p-6 hover:border-accent/40 transition-colors">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-2xl">📈</span>
+        <div className="mb-3">
           <div>
             <h3 className="text-lg font-bold text-primary-dark">
               Growth Website
@@ -185,10 +183,9 @@ function WebsitePackagesContent() {
 
       <div className="rounded-xl border-2 border-accent p-6 relative">
         <span className="absolute -top-3 left-6 bg-accent text-primary-dark text-xs font-bold px-3 py-1 rounded-full">
-          Most Popular
+          🔥 Most Popular
         </span>
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-2xl">🔥</span>
+        <div className="mb-3">
           <div>
             <h3 className="text-lg font-bold text-primary-dark">
               Pro Website
@@ -227,8 +224,7 @@ function WebsitePackagesContent() {
       </div>
 
       <div className="rounded-xl border border-gray-200 p-6 hover:border-accent/40 transition-colors">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-2xl">💡</span>
+        <div className="mb-3">
           <div>
             <h3 className="text-lg font-bold text-primary-dark">
               No Upfront Website
@@ -470,7 +466,7 @@ function EmailMarketingContent() {
         <ul className="space-y-2">
           <li className="flex items-center gap-2 text-sm text-gray-600">
             <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
-            Email platform setup (Mailchimp, etc.)
+            Email platform setup
           </li>
           <li className="flex items-center gap-2 text-sm text-gray-600">
             <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
@@ -546,6 +542,17 @@ const modalContentMap: Record<string, React.ReactNode> = {
   "business-cards": <BusinessCardContent />,
 };
 
+const servicePageMap: Record<string, string> = {
+  websites: "/services/web-design",
+  "social-media": "/services/social-media",
+  booking: "/services/booking-systems",
+  "qr-codes": "/services/qr-codes",
+  "google-business": "/services/google-business",
+  "google-reviews": "/services/google-reviews",
+  "email-marketing": "/services/email-marketing",
+  "business-cards": "/services/business-cards",
+};
+
 export default function ServicePackages() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
 
@@ -585,6 +592,7 @@ export default function ServicePackages() {
         isOpen={activeModal !== null}
         onClose={() => setActiveModal(null)}
         title={activePackage?.title ?? ""}
+        moreInfoHref={activeModal ? servicePageMap[activeModal] : undefined}
       >
         {activeModal && modalContentMap[activeModal]}
       </Modal>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { X } from "lucide-react";
 
 interface ModalProps {
@@ -8,9 +9,10 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
+  moreInfoHref?: string;
 }
 
-export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
+export default function Modal({ isOpen, onClose, title, children, moreInfoHref }: ModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,14 +59,23 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
           </button>
         </div>
         <div className="px-6 py-6">{children}</div>
-        <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 rounded-b-2xl">
-          <a
-            href="#contact"
+        <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 rounded-b-2xl flex gap-3">
+          {moreInfoHref && (
+            <Link
+              href={moreInfoHref}
+              onClick={onClose}
+              className="flex-1 text-center rounded-full border-2 border-primary px-6 py-3 text-base font-semibold text-primary hover:bg-primary/5 transition-all active:scale-95"
+            >
+              More Info
+            </Link>
+          )}
+          <Link
+            href="/contact"
             onClick={onClose}
-            className="block w-full text-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-white shadow-md hover:bg-primary-light transition-all hover:shadow-lg active:scale-95"
+            className="flex-1 text-center rounded-full bg-primary px-6 py-3 text-base font-semibold text-white shadow-md hover:bg-primary-light transition-all hover:shadow-lg active:scale-95"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>

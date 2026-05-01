@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
@@ -6,7 +7,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-dark via-primary to-primary-light"
     >
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-400 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -35,32 +36,32 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-primary-dark shadow-lg hover:bg-accent-light transition-all hover:shadow-xl hover:shadow-accent/20 active:scale-95"
             >
               Start Your Project
               <ArrowRight size={18} />
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              href="/#services"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all active:scale-95"
             >
               Explore Services
-            </a>
+            </Link>
           </div>
 
-          <div className="mt-16 flex items-center gap-8 text-blue-100/60">
+          <div className="mt-16 flex flex-wrap items-center gap-6 sm:gap-8 text-blue-100/60">
             <div className="text-center">
               <div className="text-3xl font-bold text-white">50+</div>
               <div className="text-sm mt-1">Projects Delivered</div>
             </div>
-            <div className="h-10 w-px bg-white/20" />
+            <div className="h-10 w-px bg-white/20 hidden sm:block" />
             <div className="text-center">
               <div className="text-3xl font-bold text-white">100%</div>
               <div className="text-sm mt-1">Client Satisfaction</div>
             </div>
-            <div className="h-10 w-px bg-white/20" />
+            <div className="h-10 w-px bg-white/20 hidden sm:block" />
             <div className="text-center">
               <div className="text-3xl font-bold text-white">24/7</div>
               <div className="text-sm mt-1">Support Available</div>

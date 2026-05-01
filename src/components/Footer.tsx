@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -26,68 +28,92 @@ export default function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               <li>
-                <a
-                  href="#home"
+                <Link
+                  href="/"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/#services"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  href="/about"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-widest text-blue-200/60">
-              Services
+              What We Do
             </h4>
             <ul className="mt-4 space-y-3">
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services/web-design"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
-                  Website Development
-                </a>
+                  Web Design &amp; Development
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services/social-media"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   Social Media Management
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services/business-cards"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
                   Business Card Design
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/google-business"
+                  className="text-sm text-blue-200/50 hover:text-accent transition-colors"
+                >
+                  Google Business &amp; SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/email-marketing"
+                  className="text-sm text-blue-200/50 hover:text-accent transition-colors"
+                >
+                  Email Marketing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/booking-systems"
+                  className="text-sm text-blue-200/50 hover:text-accent transition-colors"
+                >
+                  Booking Systems
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CheckCircle, Users, Target, Zap } from "lucide-react";
 
 const reasons = [
@@ -53,12 +54,12 @@ export default function About() {
               value.
             </p>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-md hover:bg-primary-light transition-all hover:shadow-lg active:scale-95"
             >
               Work With Us
-            </a>
+            </Link>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
