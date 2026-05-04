@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
   Globe,
   Share2,
@@ -555,18 +556,24 @@ const servicePageMap: Record<string, string> = {
 
 export default function ServicePackages() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const { ref: gridRef, progress } = useScrollReveal();
 
   const activePackage = packages.find((p) => p.id === activeModal);
 
   return (
     <>
-      <div className="mt-12">
+      <div className="mt-12" ref={gridRef}>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {packages.map((pkg) => (
+          {packages.map((pkg, i) => {
+            const itemProgress = Math.max(0, Math.min(1, (progress - i * 0.08) / 0.44));
+            return (
             <button
               key={pkg.id}
               onClick={() => setActiveModal(pkg.id)}
-              className="group flex items-center gap-4 rounded-xl bg-white p-5 border border-gray-100 shadow-sm hover:shadow-lg hover:border-accent/40 transition-all duration-300 hover:-translate-y-0.5 text-left cursor-pointer"
+              className="group flex items-center gap-4 rounded-xl bg-white p-5 border border-gray-100 shadow-sm hover:shadow-lg hover:border-accent/40 transition-[box-shadow,border-color] duration-300 text-left cursor-pointer"
+              style={{
+                transform: `translateY(${(1 - itemProgress) * 150}px)`,
+              }}
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary-dark transition-colors duration-300">
                 <pkg.icon size={22} />
@@ -584,7 +591,8 @@ export default function ServicePackages() {
                 className="shrink-0 text-gray-300 group-hover:text-accent-dark transition-colors ml-auto"
               />
             </button>
-          ))}
+            );
+          })}
         </div>
       </div>
 

@@ -14,7 +14,7 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-32 lg:px-8 lg:py-40">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 text-sm text-white/90 mb-8 border border-white/10">
             <Sparkles size={16} className="text-accent" />
             <span>Your Growth Partner in Digital Marketing</span>
@@ -24,7 +24,7 @@ export default function Hero() {
             We Build Brands
             <br />
             That{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-accent">
+            <span className="text-transparent bg-clip-text bg-accent">
               Stand Out
             </span>
           </h1>
@@ -35,10 +35,10 @@ export default function Hero() {
             needs to thrive in a digital world.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:400ms]">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-primary-dark shadow-lg hover:bg-accent-light transition-all hover:shadow-xl hover:shadow-accent/20 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-primary-dark hover:bg-accent-dark transition-all hover:shadow-md hover:shadow-accent/20 active:scale-95"
             >
               Start Your Project
               <ArrowRight size={18} />
