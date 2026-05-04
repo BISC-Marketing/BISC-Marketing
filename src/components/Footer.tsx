@@ -45,6 +45,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/#portfolio"
+                  className="text-sm text-blue-200/50 hover:text-accent transition-colors"
+                >
+                  Our Work
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-sm text-blue-200/50 hover:text-accent transition-colors"
                 >
