@@ -1,6 +1,12 @@
+"use client";
+
 import ContactForm from "./ContactForm";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Contact() {
+  const { ref: headingRef, progress: headingProgress } = useScrollReveal();
+  const { ref: formRef, progress: formProgress } = useScrollReveal();
+
   return (
     <section
       id="contact"
@@ -12,7 +18,14 @@ export default function Contact() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
+        <div
+          ref={headingRef}
+          className="text-center max-w-2xl mx-auto"
+          style={{
+            opacity: headingProgress,
+            transform: `translateY(${(1 - headingProgress) * 30}px)`,
+          }}
+        >
           <span className="text-sm font-semibold uppercase tracking-widest text-accent-light">
             Get In Touch
           </span>
@@ -25,7 +38,14 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="mt-16">
+        <div
+          ref={formRef}
+          className="mt-16"
+          style={{
+            opacity: formProgress,
+            transform: `translateY(${(1 - formProgress) * 30}px)`,
+          }}
+        >
           <ContactForm />
         </div>
       </div>

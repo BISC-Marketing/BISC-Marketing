@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { CheckCircle, Users, Target, Zap } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const reasons = [
   {
@@ -29,11 +32,20 @@ const reasons = [
 ];
 
 export default function About() {
+  const { ref: textRef, progress: textProgress } = useScrollReveal();
+  const { ref: cardsRef, progress: cardsProgress } = useScrollReveal();
+
   return (
     <section id="about" className="py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div
+            ref={textRef}
+            style={{
+              opacity: textProgress,
+              transform: `translateX(${(1 - textProgress) * -30}px)`,
+            }}
+          >
             <span className="text-sm font-semibold uppercase tracking-widest text-accent-dark">
               Why Choose Us
             </span>
@@ -62,11 +74,16 @@ export default function About() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {reasons.map((reason) => (
+          <div ref={cardsRef} className="grid sm:grid-cols-2 gap-6">
+            {reasons.map((reason, i) => {
+              const itemProgress = Math.max(0, Math.min(1, (cardsProgress - i * 0.08) / 0.5));
+              return (
               <div
                 key={reason.title}
-                className="rounded-2xl bg-surface p-6 border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all duration-300"
+                className="rounded-2xl bg-surface p-6 border border-gray-100 hover:border-accent/30 hover:shadow-md transition-[box-shadow,border-color] duration-300"
+                style={{
+                  transform: `translateY(${(1 - itemProgress) * 200}px)`,
+                }}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent-dark">
                   <reason.icon size={24} />
@@ -78,7 +95,8 @@ export default function About() {
                   {reason.description}
                 </p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

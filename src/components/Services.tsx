@@ -1,10 +1,22 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import ServicePackages from "./ServicePackages";
 
 export default function Services() {
+  const { ref: headingRef, progress } = useScrollReveal();
+
   return (
     <section id="services" className="py-24 lg:py-32 bg-surface">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
+        <div
+          ref={headingRef}
+          className="text-center max-w-2xl mx-auto"
+          style={{
+            opacity: progress,
+            transform: `translateY(${(1 - progress) * 30}px)`,
+          }}
+        >
           <span className="text-sm font-semibold uppercase tracking-widest text-accent-dark">
             What We Do
           </span>

@@ -1,4 +1,7 @@
+"use client";
+
 import { ExternalLink } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
   {
@@ -25,10 +28,20 @@ const projects = [
 ];
 
 export default function Portfolio() {
+  const { ref: headingRef, progress: headingProgress } = useScrollReveal();
+  const { ref: gridRef, progress: gridProgress } = useScrollReveal();
+
   return (
     <section id="portfolio" className="py-24 lg:py-32 bg-surface">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
+        <div
+          ref={headingRef}
+          className="text-center max-w-2xl mx-auto"
+          style={{
+            opacity: headingProgress,
+            transform: `translateY(${(1 - headingProgress) * 30}px)`,
+          }}
+        >
           <span className="text-sm font-semibold uppercase tracking-widest text-accent-dark">
             Our Work
           </span>
@@ -41,12 +54,16 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) =>
-            project.comingSoon ? (
+        <div ref={gridRef} className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, i) => {
+            const itemProgress = Math.max(0, Math.min(1, (gridProgress - i * 0.25) / 0.35));
+            return project.comingSoon ? (
               <div
                 key={i}
                 className="rounded-2xl bg-white border border-dashed border-gray-200 overflow-hidden opacity-60"
+                style={{
+                  transform: `translateY(${(1 - itemProgress) * 200}px)`,
+                }}
               >
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-400">
@@ -73,7 +90,10 @@ export default function Portfolio() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-2xl bg-white border border-gray-100 overflow-hidden hover:border-accent/40 hover:shadow-lg transition-all duration-300"
+                className="group rounded-2xl bg-white border border-gray-100 overflow-hidden hover:border-accent/40 hover:shadow-lg transition-[box-shadow,border-color] duration-300"
+                style={{
+                  transform: `translateY(${(1 - itemProgress) * 200}px)`,
+                }}
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between">
@@ -104,8 +124,8 @@ export default function Portfolio() {
                   </span>
                 </div>
               </a>
-            )
-          )}
+            );
+          })}
         </div>
       </div>
     </section>
