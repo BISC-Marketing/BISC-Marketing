@@ -8,7 +8,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-24 lg:py-32 bg-surface">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-[90rem] px-6 lg:px-8">
         <div
           ref={headingRef}
           className="text-center max-w-2xl mx-auto"
