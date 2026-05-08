@@ -34,7 +34,7 @@ const packages = [
     price: "$350",
     priceNote: "/month",
     setupFee: "$500",
-    bestFor: "Businesses that want actual customers, not just a site",
+    bestFor: "Businesses ready to grow their customer base online",
     outcome: "You get more calls and messages directly from your website.",
     featured: false,
     features: [
