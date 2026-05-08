@@ -12,11 +12,11 @@ const projects = [
     url: "https://electrician.biscmarketing.com",
   },
   {
-    title: "Coming Soon",
+    title: "Sparkes Plumbing",
     description:
-      "A new project is in the works. Check back soon to see our latest build.",
-    tags: ["TBA"],
-    comingSoon: true,
+      "A clean, conversion-focused website for a local plumbing business — built to rank on Google and turn visitors into booked jobs.",
+    tags: ["Web Design", "SEO", "Lead Generation"],
+    url: "https://plumber.biscmarketing.com",
   },
   {
     title: "Coming Soon",
