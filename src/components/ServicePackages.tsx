@@ -17,6 +17,7 @@ const packages = [
     bestFor: "Businesses with no website or an outdated one",
     outcome: "You look legit and can start receiving enquiries online.",
     featured: false,
+    includes: ["Website", "SEO", "Contact Form"],
     features: [
       "Simple website",
       "Mobile-responsive design",
@@ -37,11 +38,13 @@ const packages = [
     bestFor: "Businesses ready to grow their customer base online",
     outcome: "You get more calls and messages directly from your website.",
     featured: false,
+    includes: ["Website", "Hosting", "SEO", "Analytics"],
     features: [
       "Everything in Starter",
       "Up to a 6 page website with conversion-focused design",
-      "Up to 3 minor website updates per month",
-      "Website hosting included",
+      "Up to 3 website content updates per month",
+      "Website hosting & domain/DNS management",
+      "Security monitoring & daily backups",
       "Click-to-call buttons & enquiry forms",
       "Basic quote request system",
       "Monthly website analytics snapshot",
@@ -53,18 +56,19 @@ const packages = [
     name: "Pro",
     subtitle: "Hands-Off Growth",
     icon: Zap,
-    price: "$900",
+    price: "$599",
     priceNote: "/month",
     setupFee: "$750",
     bestFor: "Businesses who don't want to think about marketing",
     outcome:
       "You don't touch anything — but your online presence keeps growing.",
     featured: true,
+    includes: ["Website", "Hosting", "Social Media", "Email Marketing", "SEO", "Analytics"],
     features: [
       "Everything in Growth",
       "High-end custom website",
-      "Up to 5 minor website edits per month",
-      "1 major website update per month",
+      "Up to 5 website content updates per month",
+      "1 website redesign per month",
       "Social media posting (Up to 8 posts per month across all platforms)",
       "Story posting (Up to 8 stories per month across all platforms)",
       "Review management (monitoring & responses)",
@@ -77,18 +81,19 @@ const packages = [
     name: "Elite",
     subtitle: "Your Full Marketing Team",
     icon: Crown,
-    price: "$2,000",
+    price: "$2,500",
     priceNote: "/month",
     setupFee: "$1,500",
     bestFor: "Businesses that want a complete done-for-you marketing department",
     outcome:
       "You have a full marketing team without the full-time salary.",
     featured: false,
+    includes: ["Website", "Hosting", "Social Media", "Email Marketing", "SEO", "Ads", "Branding", "Analytics"],
     features: [
       "Everything in Pro",
       "Enterprise-grade website with advanced features",
-      "Up to 8 minor website edits per month",
-      "Up to 2 major website updates per month",
+      "Up to 8 website content updates per month",
+      "Up to 2 website redesigns per month",
       "Competitor monitoring",
       "Social media posting (Up to 15 posts per month across all platforms)",
       "Story posting (Up to 15 stories per month across all platforms)",
@@ -171,12 +176,27 @@ export default function ServicePackages() {
                 </span>
               </div>
 
-              <p className="text-sm text-muted mb-2">
+              <p className="text-sm text-muted mb-3">
                 <span className="font-semibold text-primary-dark">
                   Best for:
                 </span>{" "}
                 {pkg.bestFor}
               </p>
+
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {pkg.includes.map((item) => (
+                  <span
+                    key={item}
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                      pkg.featured
+                        ? "bg-accent/15 text-accent-dark"
+                        : "bg-primary/10 text-primary"
+                    }`}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
 
               <ul className="space-y-3 mb-4 flex-1">
                 {(pkg.id === "elite" && !eliteExpanded
@@ -229,6 +249,12 @@ export default function ServicePackages() {
                 >
                   Get Started
                 </Link>
+
+                <p className="text-center text-xs text-muted">
+                  {pkg.priceNote === "/month"
+                    ? "Cancel anytime with 30 days notice"
+                    : "One-time payment, no ongoing fees"}
+                </p>
               </div>
             </div>
           );
