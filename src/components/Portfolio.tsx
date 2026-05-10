@@ -3,7 +3,13 @@
 import { ExternalLink } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const projects = [
+const projects: {
+  title: string;
+  description: string;
+  tags: string[];
+  url: string;
+  comingSoon?: boolean;
+}[] = [
   {
     title: "Sparkes Electric",
     description:
