@@ -19,11 +19,11 @@ const projects = [
     url: "https://plumber.biscmarketing.com",
   },
   {
-    title: "Coming Soon",
+    title: "Sparkes Landscaping",
     description:
-      "Another exciting project on the way. Stay tuned for the reveal.",
-    tags: ["TBA"],
-    comingSoon: true,
+      "A professional website for a local landscaping business — showcasing services, portfolio, and contact forms.",
+    tags: ["Web Design", "SEO", "Lead Generation"],
+    url: "https://landscaping.biscmarketing.com",
   },
 ];
 
