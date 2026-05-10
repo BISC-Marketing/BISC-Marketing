@@ -131,6 +131,9 @@ export default function Footer() {
           <p className="text-sm text-blue-200/40">
             &copy; {currentYear} BISC Marketing. All rights reserved.
           </p>
+          <p className="text-xs text-blue-200/30 mt-2">
+            ABN: 71 403 907 551
+          </p>
         </div>
       </div>
     </footer>
